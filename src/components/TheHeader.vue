@@ -1,4 +1,6 @@
-<script></script>
+<script>
+import { router } from '../router';
+</script>
 
 <template>
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -23,11 +25,13 @@
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav me-auto">
           <li class="nav-item d-flex">
+            <router-link class="text-decoration-none text-secondary" :to="{ name: 'home' }">Home</router-link>
           </li>
         </ul>
 
         <!-- Right Side Of Navbar -->
-        
+
       </div>
     </div>
-</nav></template>
+  </nav>
+</template>

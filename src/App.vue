@@ -1,56 +1,24 @@
 <script>
-import axios from "axios";
 import TheHeader from './components/TheHeader.vue';
-import ProjectCard from './components/ProjectCard.vue';
 
 export default {
   components: {
-    ProjectCard,
     TheHeader
   },
   data() {
     return {
-      projects: [],
-      pagination: {}
     }
-  }, methods: {
-    fetchData(url) {
-      //if the url is set in this case it means that i'm navigating through the pages and that i'm adding querys to the url, 
-      //in the other case is the first load of the page
-      axios.get(url ?? "http://127.0.0.1:8000/api/projects")
-        .then((response) => {
-          //inserts the found and paginated data in the variable projects
-          this.projects = response.data.data;
-
-          //deletes the data that has been saved in the projects, the remaining data are the informations for the pagination
-          delete response.data.data;
-
-          //assigns the pagination's data to the object
-          this.pagination = response.data
-
-          console.log(this.pagination)
-        })
-    }
-  }, mounted() {
-    this.fetchData()
   }
 }
 </script>
 
 <template>
   <TheHeader></TheHeader>
-  <main>
-    <div class="container d-flex gap-4 flex-wrap my-5">
-      <div class="card" style="width: 30%" v-for="project in projects">
-        <ProjectCard :project="project"></ProjectCard>
-      </div>
-    </div>
 
-    <!-- paginazione -->
-    <div class="text-center">
-      <a v-for="pageLink in pagination.links" class="btn btn-link" @click="fetchData(pageLink.url)"
-        v-html="pageLink.label"></a>
-    </div>
+  <main>
+      <router-link :to="{name: 'home'}"></router-link>
+
+      <router-view></router-view>
   </main>
 </template>
 

@@ -1,5 +1,4 @@
 <script>
-import axios from "axios";
 
 export default {
   props: {
@@ -40,6 +39,11 @@ export default {
 
     <!-- Release date -->
     <h6>Release: <span class="card-text text-secondary">{{ project.release_date }}</span></h6>
+
+  </div>
+
+  <div class="m-3">
+    <router-link :to="{name: 'project.show', params: { slug: project.slug }}"><button class="btn btn-primary w-100">Details</button></router-link>  
   </div>
 
   <!-- Link -->
