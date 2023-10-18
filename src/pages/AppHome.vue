@@ -36,9 +36,15 @@ export default {
 
 <template>
   <section>
-    <div class="container d-flex gap-4 flex-wrap my-5">
-      <div class="card" style="width: 30%" v-for="project in projects">
-        <ProjectCard :project="project"></ProjectCard>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="cards-container d-flex gap-4 flex-wrap my-5">
+            <div class="card" style="width: 30%" v-for="project in projects">
+              <ProjectCard :project="project"></ProjectCard>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

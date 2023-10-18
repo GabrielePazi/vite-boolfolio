@@ -24,8 +24,9 @@ import { router } from '../router';
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left Side Of Navbar -->
         <ul class="navbar-nav me-auto">
-          <li class="nav-item d-flex">
+          <li class="nav-item d-flex gap-2">
             <router-link class="text-decoration-none text-secondary" :to="{ name: 'home' }">Home</router-link>
+            <router-link class="text-decoration-none text-secondary" :to="{ name: 'contactMe' }">Contacts</router-link>
           </li>
         </ul>
 
